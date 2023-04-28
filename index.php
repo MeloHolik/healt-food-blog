@@ -16,6 +16,10 @@ echo '</pre>';
     <title>health-food-blog</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        img {
+            width: 500px;
+            height: auto;
+        }
        * {
             margin: 10px;
             padding: 10px;
@@ -36,20 +40,62 @@ echo '</pre>';
 Жиры: <?= $num[5] ?><br>
 Углеводы: <?=$num[6] ?><br>
 Калории: <?=$num[7] ?><br>
-    <img src="https://xn--b1aqjenlka.xn--p1ai/img/recepty/1935/social.jpg" alt="Борщ">
+    <img><?= $num[9]?></img>
+    <img><?php  
+    if ($num[11]) {
+  echo "<img src='img/$num[11]'/>";;
+} else { 
+     echo $recept=''; 
+ } ?></img><br>
     <h2>Ингредиенты:</h2>
     <?= $num[8]
      ?><br>
-
-    <img src="https://vilkin.pro/wp-content/uploads/2018/06/borsh-so-svininoi-1-770x513.jpg" alt="Борщ">
+    <img><?= $num[10]?></img>
+    <img><?php  
+    if ($num[12]) {
+  echo "<img src='img/$num[12]'/>";;
+} else { 
+     echo $recept=''; 
+ } ?></img>
+<br>
     <h2>Рецепт</h2>    
     <?= $num[3] ?><br>
     </p>
-
+<p><a href="update.php?id=<?= $num[0] ?>">Редактировать рецепт</a></p>
 <?php
 }
   ?>
-    
+ <div class ="container">
+    <h2> Добавить свой рецепт </h2>
+ <form action ='new_recipes.php' method='post'>
+ 	<p>Название блюда</p>
+ 	<input type='text' name='name'>
+ 	<p>КБЖУ на 100 г.<p>
+<ul>
+    <li>Белки
+    	<input type='number', name='protein'>
+    </li>
+    <li>Жиры
+    	<input type='number', name='fat'>
+    </li>
+    <li>Углеводы
+    	<input type='number', name='carbonyhydrates'>
+    </li>
+    <li>Калории
+    	<input type='number', name='calories'>
+    </li>
+</ul>
+<p> Изображение блюда</p>
+<input type='file' name='img_main_download'><br>
+<p>Ингредиенты</p>
+<textarea name='ingredients' size="80"></textarea>
+<p>Изображение ингредиентов</p>
+<input type='file' name='img_sub_download'>
+<p> Рецепт </p>
+<textarea name='instructions' size="80"></textarea>
+<button type='submit' >Отправить рецепт</button>
+ </form>
+</div>
     <footer>
       Подвал
     </footer>

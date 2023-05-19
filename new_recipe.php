@@ -1,10 +1,3 @@
-<?php
-	require_once 'connect.php';
-	$recept_id = $_GET['id'];
-	$recept = mysqli_query($connect, "SELECT * FROM `list` WHERE `id` ='$recept_id'");
-	$recept = mysqli_fetch_assoc($recept);
-?>
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -13,48 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>health-food-blog</title>
     <link rel="stylesheet" href="styles.css">
-</head>
+ 
+</head> 
+<body>
+<header>
+    <h1>Блог о здоровой еде</h1> 
+</header> 
 <nav> 
     <ul> 
         <li>
             <a href="index.html">Главная</a>
-        </li> <li><a href="calculator.php">Калькулятор КБЖУ</a></li> 
+        </li> <li><a href="calculate.php">Калькулятор КБЖУ</a></li> 
         <li><a href="new_recipes.php">Добавить блюдо</a></li> 
         <li><a href="update.php">Редактировать блюдо</a></li> 
         <li><a href="authorization.php">Вход</a></li>
     </ul> 
     </nav> 
- <div class ="container">
-    <h2> Обновить рецепт </h2>
- <form action ='updater.php' method='post'>
- 	<input type="hidden" name="id" value="<?= $recept_id ?>" >
+<div class ="container">
+    <h2> Добавить свой рецепт </h2>
+ <form action ='new_recipes.php' method='post'>
  	<p>Название блюда</p>
- 	<input type='text' name='name' value="<?= $recept['name']?>">
+ 	<input type='text' name='name'>
  	<p>КБЖУ на 100 г.<p>
 <ul>
     <li>Белки
-    	<input type='number', name='protein' value="<?= $recept['protein']?>">
+    	<input type='number', name='protein'>
     </li>
     <li>Жиры
-    	<input type='number', name='fat' value="<?= $recept['fat']?>">
+    	<input type='number', name='fat'>
     </li>
     <li>Углеводы
-    	<input type='number', name='carbonyhydrates' value="<?= $recept['carbhyd']?>">
+    	<input type='number', name='carbonyhydrates'>
     </li>
     <li>Калории
-    	<input type='number', name='calories' value="<?= $recept['calories']?>">
+    	<input type='number', name='calories'>
     </li>
 </ul>
 <p> Изображение блюда</p>
 <input type='file' name='img_main_download' value="<?= $recept['img_main_download']?>"><br>
 <p>Ингредиенты</p>
-<textarea name='ingredients' size="80"><?= $recept['ingredients']?></textarea>
+<textarea name='ingredients' size="80"></textarea>
 <p>Изображение ингредиентов</p>
 <input type='file' name='img_sub_download' value="<?= $recept['img_sub_download']?>">
-<input type="submit" name="submit_image" value="Upload">
 <p> Рецепт </p>
-<textarea name='instructions' size="80"> <?= $recept['instructions']?></textarea>
-<button type='submit' >Обновить рецепт</button>
+<textarea name='instructions' size="80"></textarea><br>
+<button type='submit' >Отправить рецепт</button>
  </form>
 </div>
+    <footer>
+      Подвал
+    </footer>
 
+  </body>
+</html>

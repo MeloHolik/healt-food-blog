@@ -1,6 +1,6 @@
-img {
-    width: 30%;
-    height: auto;
+
+.img {
+    resize: both;
 }
 
 .foot_blog {

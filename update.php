@@ -14,16 +14,6 @@
     <title>health-food-blog</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<nav> 
-    <ul> 
-        <li>
-            <a href="index.html">Главная</a>
-        </li> <li><a href="calculator.php">Калькулятор КБЖУ</a></li> 
-        <li><a href="new_recipes.php">Добавить блюдо</a></li> 
-        <li><a href="update.php">Редактировать блюдо</a></li> 
-        <li><a href="authorization.php">Вход</a></li>
-    </ul> 
-    </nav> 
  <div class ="container">
     <h2> Обновить рецепт </h2>
  <form action ='updater.php' method='post'>

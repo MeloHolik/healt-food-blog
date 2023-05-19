@@ -1,4 +1,43 @@
 img {
-    width: 700px;
+    width: 30%;
     height: auto;
+}
+
+.foot_blog {
+    width: 100%;
+    margin-bottom: 30px;    
+}
+
+.foot_blog_left {
+    width: 40%; 
+    float: left;  
+}
+
+.foot_blog_right {
+    width: 60%; 
+    float: right; 
+}
+
+.foot_blog_table_recept {
+    width: 30%; 
+    float: left;
+}
+
+.foot_blog_table_pfc {
+    width: 100%; 
+    float: center;
+}
+
+.foot_blog_table_pfc_1st{
+    width: 20%; 
+    text-align: right;
+}
+
+.foot_blog_table_pfc_2nd{
+    width: 1%;    
+}
+
+.foot_blog_table_pfc_3nd{
+    width: 20%; 
+    text-align: left;
 }

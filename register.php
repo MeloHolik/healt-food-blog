@@ -40,23 +40,20 @@ require_once 'connect.php';
 	<button type="submit" name="register">Зарегистрироваться</button> </p> 
 </form>
  <?php 
- if (isset($_POST['register'])) 
- 	{ $username = $_POST['username']; 
- $password = password_hash($_POST['password'], PASSWORD_DEFAULT); 
- //проверка имени пользователя на уникальность 
- $sql = "SELECT * FROM `users` WHERE username='$username'";
-  $result = mysqli_query($connect, $sql);
-   if (mysqli_num_rows($result) > 0) 
-   	{ echo "Имя пользователя уже занято!"; } 
-   else { 
-   	$sql = "INSERT INTO `users`(username, password) VALUES('$username', '$password')";
-   	 if (mysqli_query($connect, $sql)) 
-   	 	{ header('location: authorization.php'); } 
-   	 else 
-   	 	{ echo "Ошибка: " . mysqli_error($connect); 
-   	} 
-   } 
-} 
+ if (isset($_POST['username']) && isset($_POST['password'])) {
+    $username = mysqli_real_escape_string($connect, $_POST['username']);
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+    $query = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
+    $result = mysqli_query($connect, $query);
+
+    if ($result) {
+        echo "Регистрация прошла успешно!";
+    } else {
+        echo "Произошла ошибка, попробуйте еще раз.";
+    }
+}
+
 mysqli_close($connect);
 ?> 
 </body> 

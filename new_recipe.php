@@ -46,6 +46,3 @@ require_once 'components/header.php'; ?>
     </form>
 </div>
 <?php require_once 'components/footer.php'; ?>
-
-
-

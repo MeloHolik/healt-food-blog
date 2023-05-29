@@ -3,14 +3,23 @@
 	$recept_id = $_GET['id'];
 	$recept = mysqli_query($connect, "SELECT * FROM `list` WHERE `id` ='$recept_id'");
 	$recept = mysqli_fetch_assoc($recept);
+    $query = "SELECT * FROM `categories`";
+$categories = mysqli_query($connect, $query);
+$categories = mysqli_fetch_all($categories);
 ?>
 
 <? require_once 'components/header.php'; ?>
 
 <div style="border: 1px solid #ccc; padding: 16px; margin-top: 32px;">
     <h2> Обновить рецепт </h2>
-    <form action='updater.php' method='post'>
+    <form action="updater.php" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?= $recept_id ?>">
+<p style="margin-top: 24px;">Категория</p>
+<select name="category_id" style="padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+    <?php foreach ($categories as $category) { ?>
+        <option value="<?= $category[0] ?>" <?php if ($recipe['category_id'] == $category[0]) { echo "selected"; } ?>><?= $category[1] ?></option>
+    <?php } ?>
+</select>
         <p>Название блюда</p>
         <input type='text' name='name' value="<?= $recept['name']?>" style="padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px;">
         <p>КБЖУ на 100 г.<p>

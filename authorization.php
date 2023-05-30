@@ -2,7 +2,7 @@
 require_once 'connect.php';
 ?>
 
-<? require_once 'components/header.php'; ?>
+<?php require_once 'components/header.php'; ?>
 
 <main style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: Arial, sans-serif;">
 	<form method="post" action="auth_check.php" style="display: flex; flex-direction: column; align-items: center; background-color: #f2f2f2; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);">
@@ -14,4 +14,5 @@ require_once 'connect.php';
 		<a href="register.php" style="color: #c3272c; text-decoration: none; margin-top: 10px; font-size: 16px;">Регистрация</a> 
 	</form> 
 </main>
-<? require_once 'components/footer.php'; ?>
+
+<?php require_once 'components/footer.php'; ?>

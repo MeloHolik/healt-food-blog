@@ -11,7 +11,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row['password'])) {
-            $_SESSION['username'] = $row['username'];
+            $_SESSION['user'] = $row;
             header('Location: profile.php');
         } else {
             echo "Неправильный пароль!";
